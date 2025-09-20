@@ -198,3 +198,14 @@ Utilisez les instructions/rules pour rédiger ces tests
 L'employé d'agence doit également pouvoir sauvegarder les éléments en base de données afin de pouvoir consulter la liste des dossiers de simulation de prêts qu'il a effectué. 
 
 Pour cela vous pouvez vous appuyer sur le fichier de base de données SQL Lite *loan_simulator.db* et l'exemple de script SQL pour insérer les données *sample_data.sql*
+
+## Hands-on #5
+
+Une nouvelle page doit permettre au client de dialoguer avec un ChatBot qui cherchera à obtenir les informations suivantes avant de déterminer le coût total du crédit :
+- Nom
+- Prénom
+- Catégorie d'âge
+- Catégorie socio-professionnelle
+- Revenu mensuel net
+- La durée du prêt
+- Le montant du prêt souhaité
