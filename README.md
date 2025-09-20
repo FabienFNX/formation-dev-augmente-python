@@ -186,3 +186,9 @@ Il doit pouvoir saisir une nouvelle simulation de crédit immobilier avec les é
 - La durée du prêt
 - Le montant du prêt souhaité
 Lorsqu'il clique sur calculer le taux va être déterminé à partir des informations obtenues depuis l'API REST qui est disponible dans le projet *interest-rate-api* et dont la description est disponible ici : http://localhost:8081/swagger-ui.html
+
+## Hands-on #3
+
+Réalisez les tests unitaires associés au loan-simulator en dépassant 80% de couverture de tests.
+
+Utilisez les instructions/rules pour rédiger ces tests
