@@ -54,3 +54,48 @@ class LoanResponse(BaseModel):
                 "annualInterestRate": 1.7
             }
         }
+
+
+class SaveSimulationRequest(BaseModel):
+    loan_request: LoanRequest = Field(..., alias="loanRequest", description="Données de la demande de prêt")
+    loan_response: LoanResponse = Field(..., alias="loanResponse", description="Résultats du calcul de prêt")
+
+    class Config:
+        populate_by_name = True
+
+
+class SaveSimulationResponse(BaseModel):
+    id: int = Field(..., description="ID de la simulation sauvegardée")
+    message: str = Field(..., description="Message de confirmation")
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "id": 123,
+                "message": "Simulation sauvegardée avec succès"
+            }
+        }
+
+
+class SimulationHistory(BaseModel):
+    id: int
+    first_name: str = Field(..., alias="firstName")
+    last_name: str = Field(..., alias="lastName")
+    age_category: str = Field(..., alias="ageCategory")
+    professional_category: str = Field(..., alias="professionalCategory")
+    monthly_net_income: float = Field(..., alias="monthlyNetIncome")
+    loan_amount: float = Field(..., alias="loanAmount")
+    duration_years: int = Field(..., alias="durationYears")
+    annual_interest_rate: float = Field(..., alias="annualInterestRate")
+    total_interest: float = Field(..., alias="totalInterest")
+    total_cost: float = Field(..., alias="totalCost")
+    monthly_payment: float = Field(..., alias="monthlyPayment")
+    created_at: str = Field(..., alias="createdAt")
+
+    # Additional fields for frontend compatibility
+    client_name: str = Field(..., alias="clientName", description="Nom complet du client")
+    formatted_created_at: str = Field(..., alias="formattedCreatedAt", description="Date formatée pour affichage")
+
+    class Config:
+        populate_by_name = True
+        from_attributes = True

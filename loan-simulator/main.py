@@ -5,10 +5,13 @@ from contextlib import asynccontextmanager
 import uvicorn
 
 from app.routers import loan
+from app.database import create_tables
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Initialize database tables
+    await create_tables()
     yield
 
 
