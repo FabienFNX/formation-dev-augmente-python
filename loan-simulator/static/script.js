@@ -15,8 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
             annualInterestRate: parseFloat(formData.get('rate'))
         };
 
-        if (!validateInput(loanRequest)) {
-            showError('Veuillez vérifier vos données. Tous les champs sont obligatoires et doivent être positifs.');
+        const validation = validateInput(loanRequest);
+        if (!validation.isValid) {
+            const errorMessage = 'Erreurs de saisie :\n• ' + validation.errors.join('\n• ');
+            showError(errorMessage);
             return;
         }
 
@@ -42,9 +44,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function validateInput(data) {
-        return data.amount > 0 &&
-               data.durationYears > 0 &&
-               data.annualInterestRate >= 0;
+        const errors = [];
+
+        if (!data.amount || data.amount <= 0) {
+            errors.push('Le montant du prêt doit être supérieur à 0€');
+        }
+
+        if (!data.durationYears || data.durationYears <= 0) {
+            errors.push('La durée du prêt doit être supérieure à 0 année');
+        }
+
+        if (data.annualInterestRate === null || data.annualInterestRate === undefined || data.annualInterestRate < 0) {
+            errors.push('Le taux d\'intérêt doit être positif ou nul');
+        }
+
+        return {
+            isValid: errors.length === 0,
+            errors: errors
+        };
     }
 
     function displayResult(result) {
@@ -58,8 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showError(message) {
-        errorDiv.textContent = message;
+        // Convertir les \n en <br> pour l'affichage HTML
+        errorDiv.innerHTML = message.replace(/\n/g, '<br>');
         errorDiv.style.display = 'block';
+        errorDiv.scrollIntoView({ behavior: 'smooth' });
     }
 
     function hideMessages() {

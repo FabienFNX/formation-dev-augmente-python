@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Employé - Simulation de Prêt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="employee.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Espace Employé d'Agence</h1>
+        <div class="subtitle">Simulation de prêt immobilier avec calcul automatique du taux</div>
+
+        <form id="employeeLoanForm" class="loan-form">
+            <!-- Informations client -->
+            <div class="section-title">👤 Informations Client</div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">Prénom*:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom*:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="ageCategory">Catégorie d'âge*:</label>
+                    <select id="ageCategory" name="ageCategory" required>
+                        <option value="">-- Sélectionnez --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="professionalCategory">Catégorie professionnelle*:</label>
+                    <select id="professionalCategory" name="professionalCategory" required>
+                        <option value="">-- Sélectionnez --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="monthlyNetIncome">Revenu mensuel net (€)*:</label>
+                <input type="number" id="monthlyNetIncome" name="monthlyNetIncome" min="0" step="100" required>
+            </div>
+
+            <!-- Informations prêt -->
+            <div class="section-title">🏠 Paramètres du Prêt</div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="amount">Montant du prêt (€)*:</label>
+                    <input type="number" id="amount" name="amount" min="1000" step="1000" required>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Durée du prêt (années)*:</label>
+                    <input type="number" id="duration" name="duration" min="1" max="50" required>
+                </div>
+            </div>
+
+            <button type="submit" class="calculate-btn">
+                <span id="calculateText">🧮 Calculer le prêt</span>
+                <span id="loadingText" style="display: none;">⏳ Calcul en cours...</span>
+            </button>
+        </form>
+
+        <!-- Affichage des résultats -->
+        <div id="result" class="result-section" style="display: none;">
+            <h2>📊 Résultats de la simulation</h2>
+
+            <!-- Informations client -->
+            <div class="client-info">
+                <h3>Client: <span id="clientName"></span></h3>
+                <div class="client-details">
+                    <span>Profil: <span id="clientProfile"></span></span>
+                    <span>Revenu: <span id="clientIncome"></span></span>
+                </div>
+            </div>
+
+            <!-- Détail du taux -->
+            <div class="rate-detail">
+                <div class="rate-item">
+                    <span class="label">Taux d'intérêt appliqué:</span>
+                    <span id="appliedRate" class="rate-value"></span>
+                </div>
+                <div class="rate-calculation" id="rateCalculation">
+                    <!-- Sera rempli dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Résultats financiers -->
+            <div class="result-grid">
+                <div class="result-item">
+                    <span class="label">Montant emprunté:</span>
+                    <span id="loanAmount" class="value"></span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Mensualité:</span>
+                    <span id="monthlyPayment" class="value"></span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Coût total des intérêts:</span>
+                    <span id="totalInterest" class="value"></span>
+                </div>
+                <div class="result-item highlight">
+                    <span class="label">Coût total du prêt:</span>
+                    <span id="totalCost" class="value"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="error" class="error-message" style="display: none;"></div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="/" class="nav-link">🏠 Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <script src="employee.js"></script>
+</body>
+</html>

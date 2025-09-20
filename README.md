@@ -173,3 +173,16 @@ Pour un prêt présentant les caractéristiques suivantes :
 - 300 000€
 - 5%
 Le coût total du prêt est de 427 028€
+
+## Hands-on #2
+
+L'application web intègre un écran dédié pour un employé d'une agence bancaire,
+Il doit pouvoir saisir une nouvelle simulation de crédit immobilier avec les éléments suivants : 
+- Nom
+- Prénom
+- Catégorie d'âge
+- Catégorie socio-professionnelle
+- Revenu mensuel net
+- La durée du prêt
+- Le montant du prêt souhaité
+Lorsqu'il clique sur calculer le taux va être déterminé à partir des informations obtenues depuis l'API REST qui est disponible dans le projet *interest-rate-api* et dont la description est disponible ici : http://localhost:8081/swagger-ui.html

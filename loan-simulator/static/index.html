@@ -10,6 +10,36 @@
     <div class="container">
         <h1>Simulateur de Prêt Immobilier</h1>
 
+        <!-- Navigation principale -->
+        <div id="navigationMenu" class="navigation-menu">
+            <div class="nav-intro">
+                <p>Choisissez votre interface de simulation :</p>
+            </div>
+
+            <div class="nav-options">
+                <div class="nav-option" onclick="showClientInterface()">
+                    <div class="nav-icon">👥</div>
+                    <h3>Simulation Client</h3>
+                    <p>Interface simple avec saisie manuelle du taux d'intérêt</p>
+                    <button class="nav-button">Accéder</button>
+                </div>
+
+                <div class="nav-option" onclick="goToEmployeeInterface()">
+                    <div class="nav-icon">🏢</div>
+                    <h3>Espace Employé</h3>
+                    <p>Interface professionnelle avec calcul automatique du taux</p>
+                    <button class="nav-button">Accéder</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interface client (existante) -->
+        <div id="clientInterface" style="display: none;">
+            <div class="interface-header">
+                <h2>Interface Client</h2>
+                <button onclick="showNavigation()" class="back-button">← Retour au menu</button>
+            </div>
+
         <form id="loanForm" class="loan-form">
             <div class="form-group">
                 <label for="amount">Montant du prêt (€):</label>
@@ -52,8 +82,10 @@
         </div>
 
         <div id="error" class="error-message" style="display: none;"></div>
+        </div> <!-- Fin interface client -->
     </div>
 
     <script src="script.js"></script>
+    <script src="navigation.js"></script>
 </body>
 </html>

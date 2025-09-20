@@ -1,0 +1,188 @@
+/* Styles spécifiques pour l'interface employé */
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #667eea;
+    margin: 30px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+select option {
+    padding: 10px;
+}
+
+/* Informations client dans les résultats */
+.client-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.client-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.client-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Détail du taux */
+.rate-detail {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.rate-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.rate-value {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #667eea;
+}
+
+.rate-calculation {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.rate-breakdown {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.rate-component {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.rate-component:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+/* États du bouton */
+.calculate-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.calculate-btn:disabled:hover {
+    transform: none;
+}
+
+/* Navigation */
+.navigation {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.nav-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .client-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .rate-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .rate-value {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 1.1rem;
+    }
+
+    .client-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .client-details {
+        font-size: 0.8rem;
+    }
+}
