@@ -46,6 +46,7 @@ class CategoryInfo(BaseModel):
     description: str
     age_range: Optional[str] = None
     rate_modifier: float
+    code: Optional[str] = None  # Enum value for API calls
 
 
 class InterestRateRequest(BaseModel):

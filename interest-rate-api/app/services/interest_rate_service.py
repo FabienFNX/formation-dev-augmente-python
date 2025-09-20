@@ -32,7 +32,8 @@ class InterestRateCalculationService:
                 name=category.value,
                 description=info["description"],
                 age_range=info["age_range"],
-                rate_modifier=info["rate_modifier"]
+                rate_modifier=info["rate_modifier"],
+                code=category.value  # Enum value for API calls
             ))
         return categories
 
@@ -43,7 +44,8 @@ class InterestRateCalculationService:
             categories.append(CategoryInfo(
                 name=info["name"],
                 description=info["description"],
-                rate_modifier=info["rate_modifier"]
+                rate_modifier=info["rate_modifier"],
+                code=category.value  # Enum value for API calls
             ))
         return categories
 
