@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import uvicorn
 
+from app.routers import loan
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -24,6 +26,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(loan.router, prefix="/api", tags=["Loan Calculator"])
 
 app.mount("/", StaticFiles(directory="loan-simulator/static", html=True), name="static")
 
